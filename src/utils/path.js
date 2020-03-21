@@ -9,11 +9,11 @@ import path from "path-webpack";
  */
 class Path {
 	constructor(pathString) {
-		var protocol;
+		var hasProtocol;
 		var parsed;
 
-		protocol = pathString.indexOf("://");
-		if (protocol > -1) {
+		hasProtocol = /^\w+:\/\//.test(pathString);
+		if (hasProtocol) {
 			pathString = new URL(pathString).pathname;
 		}
 
